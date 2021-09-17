@@ -5,6 +5,7 @@
  */
 package empresa;
 
+import empleado.Empleado;
 import java.util.Scanner;
 
 /**
@@ -20,19 +21,62 @@ public class Empresa {
         
         Scanner entrada = new Scanner(System.in);
         int opcion;
+        int contador=0;
+        
+        Empleado[] empleados = new Empleado[10];
         
         do{
             
             System.out.println("Bienvenidos");
-            System.out.println("************");
+            System.out.println("****************");
             System.out.println("1. Agregar Empleado");
             System.out.println("2. Mostrar Empleado");
-            System.out.println("1. Mostrar Empleados");
+            System.out.println("3. Mostrar Empleados");
             System.out.println("4. Salir");
             System.out.println("");
             
-            System.out.println("Digite una opcion");
+            System.out.print("Digite una opcion: ");
             opcion=entrada.nextInt();
+            
+            switch(opcion){
+                
+                case 1:
+                    empleados[contador] = new Empleado();
+                    
+                    System.out.println("Digita el id: ");
+                    empleados[contador].setId(entrada.nextInt());
+                    System.out.println("Digita el nombre: ");
+                    empleados[contador].setNombre(entrada.next());
+                    System.out.println("Digite el cargo: ");
+                    empleados[contador].setCargo(entrada.next());
+                    System.out.println("Digite el salario: ");
+                    empleados[contador].setSalario(entrada.nextInt());
+                    System.out.println("Digite el telefono: ");
+                    empleados[contador].setTelefono(entrada.next());
+                    System.out.println("Digite la direccion: ");
+                    empleados[contador].setDireccion(entrada.next());
+                    contador++;
+                                    
+                    break;
+                   
+                case 2:
+                    break;
+                    
+                case 3:
+                    for(int i=0; i<contador; i++){
+                        System.out.println(empleados[1].getNombre());
+                    }
+                    break;
+                    
+                case 4:
+                    System.exit(0);
+                    break;
+                    
+                default:
+                    System.out.println("Opcion no valida");
+                    break;                             
+                        
+            }
         
         }while(opcion!=4);
         
